@@ -1,0 +1,16 @@
+{
+  "id" : "632fabdf-7d8f-4429-aab6-cdaa6ab2b1d6",
+  "request" : {
+    "url" : "/todosConvidados",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "[{\"nome\":\"Vitor\",\"email\":\"vitinho@test.com\",\"telefone\":\"999999999\",\"idade\":\"130\"},{\"nome\":\"Vitor2\",\"email\":\"vitinho2@test.com\",\"telefone\":\"999999991\",\"idade\":\"10\"}]",
+    "headers" : {
+      "Content-Type" : "application/json"
+    },
+    "transformers" : [ "response-template" ]
+  },
+  "uuid" : "632fabdf-7d8f-4429-aab6-cdaa6ab2b1d6"
+}

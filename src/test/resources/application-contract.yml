@@ -1,0 +1,3 @@
+api:
+  convidados:
+    url: http://localhost:${stubrunner.runningstubs.spring-cloud-verifier-provider.port}

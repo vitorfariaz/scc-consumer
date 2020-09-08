@@ -1,0 +1,3 @@
+api:
+  convidados:
+    url: http://localhost:${wiremock.server.port}
