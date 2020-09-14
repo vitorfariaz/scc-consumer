@@ -1,27 +1,32 @@
 package br.com.springContract.springcloudverifierconsumer.config;
 
-//@AllArgsConstructor
-//@Configuration
+import br.com.springContract.springcloudverifierconsumer.model.Convidado;
+import org.apache.kafka.common.serialization.StringDeserializer;
+import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.kafka.annotation.EnableKafka;
+import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
+import org.springframework.kafka.config.KafkaListenerContainerFactory;
+import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
+import org.springframework.kafka.support.serializer.JsonDeserializer;
+
+@Configuration
+@EnableKafka
 public class ConsumerConfiguration {
 
-//    @Bean
-//    public ConcurrentKafkaListenerContainerFactory<String, Convidado> listenerConvidadoContainerFactory(KafkaProperties kafkaProperties){
-//        return criarListener(kafkaProperties, Convidado.class);
-//    }
-//
-//    private <T> ConcurrentKafkaListenerContainerFactory<String, T> criarListener(KafkaProperties kafkaProperties, Class<T> messageType){
-//        JsonDeserializer<T> jsonDeserializer =
-//                new JsonDeserializer<T>(messageType, false);
-//
-//        jsonDeserializer.addTrustedPackages("*");
-//
-//        DefaultKafkaConsumerFactory<String, T> cf =
-//                new DefaultKafkaConsumerFactory<>(kafkaProperties.buildConsumerProperties(), new StringDeserializer(), jsonDeserializer);
-//
-//        ConcurrentKafkaListenerContainerFactory<String, T> factory = new ConcurrentKafkaListenerContainerFactory<>();
-//
-//        factory.setConsumerFactory(cf);
-//
-//        return factory;
-//    }
+    @Bean
+    public KafkaListenerContainerFactory kafkaListenerContainerFactory(KafkaProperties kafkaProperties) {
+
+        JsonDeserializer deserializer = new JsonDeserializer(Convidado.class, false);
+        deserializer.addTrustedPackages("*");
+
+        DefaultKafkaConsumerFactory<String, Convidado> cf = new DefaultKafkaConsumerFactory(kafkaProperties.buildConsumerProperties(), new StringDeserializer(), deserializer);
+        ConcurrentKafkaListenerContainerFactory<String, Convidado> factory = new ConcurrentKafkaListenerContainerFactory<>();
+
+        factory.setConsumerFactory(cf);
+
+        return factory;
+    }
+
 }
