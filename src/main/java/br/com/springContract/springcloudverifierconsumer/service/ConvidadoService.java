@@ -13,17 +13,18 @@ import java.util.List;
 public class ConvidadoService {
 
     private final RestTemplate restTemplate;
-    private final String urlApiListaConvidados;
-    private final String pathRecurso = "/todosConvidados";
+    private final java.lang.String urlApiListaConvidados;
+    private final java.lang.String pathRecurso = "/todosConvidados";
 
-    public ConvidadoService(RestTemplate restTemplate, @Value("${api.convidados.url}") String urlApiListaConvidados) {
+    public ConvidadoService(RestTemplate restTemplate, @Value("${api.convidados.url}") java.lang.String urlApiListaConvidados) {
         this.restTemplate = restTemplate;
         this.urlApiListaConvidados = urlApiListaConvidados;
     }
 
     public List<Convidado> buscarTodosConvidados(){
+        java.lang.String url = urlApiListaConvidados + pathRecurso;
         return restTemplate
-                .exchange(urlApiListaConvidados + pathRecurso, HttpMethod.GET, null, new ParameterizedTypeReference<List<Convidado>>(){})
+                .exchange(url, HttpMethod.GET, null, new ParameterizedTypeReference<List<Convidado>>(){})
                 .getBody();
     }
 }

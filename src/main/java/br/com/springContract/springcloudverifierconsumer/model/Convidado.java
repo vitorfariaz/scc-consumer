@@ -16,12 +16,8 @@ public class Convidado {
     }
 
     public Convidado(String nome, int idade) {
-
         this.nome = nome;
-
         this.idade =  idade;
     }
-
-
 }
 

@@ -27,5 +27,4 @@ public class FiltraConvidadosController {
             .collect(Collectors.toList());
     }
 
-
 }
