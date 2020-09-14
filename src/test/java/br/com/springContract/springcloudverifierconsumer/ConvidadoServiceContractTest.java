@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.cloud.contract.stubrunner.spring.AutoConfigureStubRunner;
 import org.springframework.cloud.contract.stubrunner.spring.StubRunnerProperties;
+import org.springframework.kafka.test.context.EmbeddedKafka;
 import org.springframework.test.context.ActiveProfiles;
 
 import java.util.List;
@@ -18,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @AutoConfigureStubRunner(ids = {"br.com.springContract:spring-cloud-verifier-provider"},
         stubsMode = StubRunnerProperties.StubsMode.LOCAL)
 @ActiveProfiles("contract")
+@EmbeddedKafka(topics = "${cloudkarafka.topic}")
 class ConvidadoServiceContractTest {
 
     @Autowired
