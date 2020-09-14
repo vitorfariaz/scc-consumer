@@ -4,6 +4,7 @@ api:
 
 cloudkarafka:
   topic: v13jy9uz-default
+  port: 9305
 spring:
   kafka:
     bootstrap-servers: ${spring.embedded.kafka.brokers}

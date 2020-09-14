@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @AutoConfigureStubRunner(ids = "br.com.springContract:spring-cloud-verifier-provider",
                          stubsMode = StubRunnerProperties.StubsMode.LOCAL)
 @ActiveProfiles("contract")
-@EmbeddedKafka(topics = "${cloudkarafka.topic}")
+@EmbeddedKafka(topics = "${cloudkarafka.topic}", ports = 9305, partitions = 1)
 class MensagemConvidadoContractTest {
 
     @Autowired
