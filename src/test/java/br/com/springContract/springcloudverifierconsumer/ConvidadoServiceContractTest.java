@@ -26,7 +26,7 @@ class ConvidadoServiceContractTest {
     private ConvidadoService convidadoService;
 
     @Test
-    void contextLoads()  {
+    void deveValidarContratoRecursoTodosConvidados()  {
         List<Convidado> convidados = this.convidadoService.buscarTodosConvidados();
         assertEquals(2, convidados.size());
     }
