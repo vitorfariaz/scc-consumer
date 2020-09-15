@@ -1,6 +1,6 @@
 api:
   guests:
-    url: http://localhost:${stubrunner.runningstubs.spring-cloud-verifier-provider.port}
+    url: http://localhost:${wiremock.server.port}
 
 cloudkarafka:
   topic: v13jy9uz-default

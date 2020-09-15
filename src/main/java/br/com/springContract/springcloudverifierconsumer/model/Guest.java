@@ -9,9 +9,9 @@ import lombok.ToString;
 @EqualsAndHashCode
 @ToString
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Convidado {
+public class Guest {
 
-    private String nome;
-    private Integer idade;
+    private String name;
+    private Integer age;
 }
 

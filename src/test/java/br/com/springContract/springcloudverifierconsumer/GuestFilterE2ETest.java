@@ -6,6 +6,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.cloud.contract.wiremock.AutoConfigureWireMock;
 import org.springframework.kafka.test.context.EmbeddedKafka;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
@@ -17,15 +18,16 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 @AutoConfigureWireMock
 @EmbeddedKafka(topics = "${cloudkarafka.topic}")
-class FiltrarConvidadosE2ETest {
+@ActiveProfiles("e2e")
+class GuestFilterE2ETest {
 
 	@Autowired
 	private MockMvc mockMvc;
 
 	@Test
-	void contextLoads() throws Exception {
+	void should_filter_guest_with_one_hundred_thirty_years_old() throws Exception {
 	this.mockMvc.perform(MockMvcRequestBuilders
-			.get("/convidados?idade=130"))
-			.andExpect(jsonPath("[0].idade", equalTo(130)));
+			.get("/guests?age=130"))
+			.andExpect(jsonPath("[0].age", equalTo(130)));
 	}
 }

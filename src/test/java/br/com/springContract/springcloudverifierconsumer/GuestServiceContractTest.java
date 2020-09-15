@@ -1,7 +1,7 @@
 package br.com.springContract.springcloudverifierconsumer;
 
-import br.com.springContract.springcloudverifierconsumer.model.Convidado;
-import br.com.springContract.springcloudverifierconsumer.service.ConvidadoService;
+import br.com.springContract.springcloudverifierconsumer.model.Guest;
+import br.com.springContract.springcloudverifierconsumer.service.GuestService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,15 +20,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
         stubsMode = StubRunnerProperties.StubsMode.LOCAL)
 @ActiveProfiles("contract")
 @EmbeddedKafka(topics = "${cloudkarafka.topic}")
-class ConvidadoServiceContractTest {
+class GuestServiceContractTest {
 
     @Autowired
-    private ConvidadoService convidadoService;
+    private GuestService guestService;
 
     @Test
-    void deveValidarContratoRecursoTodosConvidados()  {
-        List<Convidado> convidados = this.convidadoService.buscarTodosConvidados();
-        assertEquals(2, convidados.size());
+    void should_validate_contract_resource_allGuests()  {
+        List<Guest> guests = this.guestService.findAllGuests();
+        assertEquals(2, guests.size());
     }
 
 }

@@ -1,0 +1,16 @@
+{
+  "id" : "5e5c454c-d714-4a10-b3a6-5b4b51247d36",
+  "request" : {
+    "url" : "/allGuests",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "[{\"name\":\"Vitor\",\"email\":\"vitinho@test.com\",\"phone\":\"700669919\",\"age\":\"130\"},{\"name\":\"Vitor2\",\"email\":\"vitinho2@test.com\",\"phone\":\"854495913\",\"age\":\"11\"}]",
+    "headers" : {
+      "Content-Type" : "application/json"
+    },
+    "transformers" : [ "response-template" ]
+  },
+  "uuid" : "5e5c454c-d714-4a10-b3a6-5b4b51247d36"
+}

@@ -1,16 +1,16 @@
 api:
-  convidados:
+  guests:
     url: http://localhost:8088
 
 cloudkarafka:
   topic: v13jy9uz-default
+  group-id: gp-consumer
 
 spring:
   kafka:
     bootstrap-servers: omnibus-01.srvs.cloudkafka.com:9094,omnibus-02.srvs.cloudkafka.com:9094,omnibus-03.srvs.cloudkafka.com:9094
     consumer:
       auto-offset-reset: latest
-      group-id: v13jy9uz-consumers2
     properties:
       sasl:
         jaas:

@@ -1,6 +1,6 @@
 package br.com.springContract.springcloudverifierconsumer;
 
-import br.com.springContract.springcloudverifierconsumer.service.ConvidadoService;
+import br.com.springContract.springcloudverifierconsumer.service.GuestService;
 import org.awaitility.Awaitility;
 import org.awaitility.Duration;
 import org.junit.jupiter.api.Test;
@@ -16,21 +16,21 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 @AutoConfigureStubRunner(ids = "br.com.springContract:spring-cloud-verifier-provider",
         stubsMode = StubRunnerProperties.StubsMode.LOCAL)
-@EmbeddedKafka(topics = "${cloudkarafka.topic}", ports = 9305, partitions = 1)
-class MensagemConvidadoContractTest {
+@EmbeddedKafka(topics = "${cloudkarafka.topic}")
+class GuestMessagingContractTest {
 
     @Autowired
-    private ConvidadoService convidadoService;
+    private GuestService guestService;
 
     @Autowired
     private StubTrigger stubTrigger;
 
     @Test
-    void deveReceberMensagem() throws InterruptedException {
-        stubTrigger.trigger("publicacao_kafka");
+    void should_receive_message() throws InterruptedException {
+        stubTrigger.trigger("publish_kafka");
 
         Awaitility.await().atMost(Duration.FIVE_SECONDS).untilAsserted(() ->
-                assertEquals(1, convidadoService.getConvidadosInseridos().size())
+                assertEquals(1, guestService.getInsertedGuests().size())
         );
     }
 
