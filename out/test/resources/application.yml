@@ -1,0 +1,22 @@
+api:
+  guests:
+    url: http://localhost:${stubrunner.runningstubs.spring-cloud-verifier-provider.port}
+
+cloudkarafka:
+  topic: v13jy9uz-default
+  group-id: teste
+
+spring:
+  kafka:
+    bootstrap-servers: ${spring.embedded.kafka.brokers}
+    producer:
+      properties:
+        "value.serializer": "org.springframework.kafka.support.serializer.JsonSerializer"
+        "spring.json.trusted.packages": "*"
+    consumer:
+      auto-offset-reset: earliest
+      properties:
+        "value.deserializer": "org.springframework.kafka.support.serializer.JsonDeserializer"
+        "value.serializer": "org.springframework.kafka.support.serializer.JsonSerializer"
+        "spring.json.trusted.packages": "*"
+      group-id: spring-contract-consumer

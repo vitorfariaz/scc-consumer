@@ -1,0 +1,21 @@
+api:
+  guests:
+    url: http://localhost:8088
+
+cloudkarafka:
+  topic: v13jy9uz-default
+  group-id: gp-consumer
+
+spring:
+  kafka:
+    bootstrap-servers: omnibus-01.srvs.cloudkafka.com:9094,omnibus-02.srvs.cloudkafka.com:9094,omnibus-03.srvs.cloudkafka.com:9094
+    consumer:
+      auto-offset-reset: latest
+    properties:
+      sasl:
+        jaas:
+          config: org.apache.kafka.common.security.scram.ScramLoginModule
+            required username=v13jy9uz password="4YmXQCOBIy4c7r2qVr4wlM5KPEBifPgw";
+        mechanism: SCRAM-SHA-256
+      security:
+        protocol: SASL_SSL
