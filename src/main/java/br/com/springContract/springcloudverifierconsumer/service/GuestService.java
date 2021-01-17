@@ -15,7 +15,7 @@ public class GuestService {
 
     private final RestTemplate restTemplate;
     private final String guestListUrlApi;
-    private final String allGuestsPathResource = "/allGuests";
+    private final String allGuestsPathResource = "/guests";
     private List<Guest> insertedGuests = new ArrayList<>();
 
     public GuestService(RestTemplate restTemplate, @Value("${api.guests.url}") String guestListUrlApi) {
