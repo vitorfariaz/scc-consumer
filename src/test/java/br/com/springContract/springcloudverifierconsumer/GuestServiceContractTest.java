@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 @SpringBootTest
-@AutoConfigureStubRunner
+@AutoConfigureStubRunner(ids = "br.com.springContract:spring-cloud-verifier-provider:+")
 @ActiveProfiles("contract")
 @EmbeddedKafka(topics = "${cloudkarafka.topic}")
 class GuestServiceContractTest {

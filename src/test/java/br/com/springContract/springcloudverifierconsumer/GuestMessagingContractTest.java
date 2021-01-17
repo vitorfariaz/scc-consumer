@@ -1,7 +1,6 @@
 package br.com.springContract.springcloudverifierconsumer;
 
 import br.com.springContract.springcloudverifierconsumer.service.GuestService;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.awaitility.Awaitility;
 import org.awaitility.Duration;
 import org.junit.jupiter.api.Test;
