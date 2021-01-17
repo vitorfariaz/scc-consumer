@@ -1,6 +1,6 @@
 package br.com.springContract.springcloudverifierconsumer.config;
 
-import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.commons.text.StringEscapeUtils;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -22,6 +22,7 @@ public class RecordMessageConverterConfig {
                     value = value.substring(1, value.length() - 1);
 
                 }
+                System.out.println("MESSAGE PUBLISHED BY STUBRUNNER: " + StringEscapeUtils.unescapeJson(value));
                 return StringEscapeUtils.unescapeJson(value); //apache commons
             }
         };

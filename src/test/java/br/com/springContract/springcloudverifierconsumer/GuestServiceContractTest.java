@@ -24,7 +24,7 @@ class GuestServiceContractTest {
     private GuestService guestService;
 
     @Test
-    void should_validate_contract_resource_allGuests()  {
+    void should_validate_contract_resource_guests()  {
         List<Guest> guests = this.guestService.findAllGuests();
         assertEquals(2, guests.size());
     }

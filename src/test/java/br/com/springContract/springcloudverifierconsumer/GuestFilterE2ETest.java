@@ -15,7 +15,6 @@ import static com.github.tomakehurst.wiremock.client.WireMock.*;
 import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
-
 @SpringBootTest
 @AutoConfigureMockMvc
 @AutoConfigureWireMock
@@ -37,7 +36,7 @@ class GuestFilterE2ETest {
 	void setUp(){
 
 		stubFor(
-				get(urlPathEqualTo("/allGuests"))
+				get(urlPathEqualTo("/guests"))
 				.willReturn(
 						aResponse()
 								.withStatus(200)
